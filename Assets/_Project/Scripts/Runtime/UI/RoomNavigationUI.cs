@@ -1,0 +1,90 @@
+using UnityEngine;
+using UnityEngine.UI;
+using UniRx;
+using _Project.Scripts.Runtime.Features.Cams;
+
+namespace _Project.Scripts.Runtime.Features.UI
+{
+    public class RoomNavigationUI : MonoBehaviour
+    {
+        [Header("Ссылка на камеру игрока")]
+        [SerializeField] private PlayerCameraController _playerCameraController;
+
+        [Header("Кнопки перемещения")]
+        [SerializeField] private Button _toMonitor1Button;
+        [SerializeField] private Button _toMonitor1FromBalconyButton;
+        [SerializeField] private Button _toMonitor2Button;
+        [SerializeField] private Button _toBalconyButton;
+
+        public BoolReactiveProperty IsBalconyUnlocked { get; } = new BoolReactiveProperty(false);
+
+        void Start()
+        {
+            if (_playerCameraController == null)
+            {
+                Debug.LogError($"[{nameof(RoomNavigationUI)}] Не назначен PlayerCameraController!");
+                return;
+            }
+
+            _toMonitor1Button.OnClickAsObservable()
+                .Subscribe(_ => { 
+                    _playerCameraController.MoveToView(0);
+
+                    _toMonitor1Button.gameObject.SetActive(false);
+                    _toMonitor2Button.gameObject.SetActive(true);
+
+                    if (IsBalconyUnlocked.Value == true)
+                    {
+                        _toBalconyButton.gameObject.SetActive(true);
+                    } 
+
+                })
+                .AddTo(this);
+
+            _toMonitor2Button.OnClickAsObservable()
+                .Subscribe(_ => { 
+                    _playerCameraController.MoveToView(1);
+
+                    _toMonitor2Button.gameObject.SetActive(false);
+                    _toMonitor1Button.gameObject.SetActive(true);
+
+                    if (IsBalconyUnlocked.Value == true)
+                    {
+                        _toBalconyButton.gameObject.SetActive(false);
+                    }
+                })
+                .AddTo(this);
+
+            _toBalconyButton.OnClickAsObservable()
+                .Subscribe(_ => { 
+                    _playerCameraController.MoveToView(2);
+
+                    _toBalconyButton.gameObject.SetActive(false);                 
+                    _toMonitor2Button.gameObject.SetActive(false);
+                    _toMonitor1FromBalconyButton.gameObject.SetActive(true);
+                })
+                .AddTo(this);
+
+            _toMonitor1FromBalconyButton.OnClickAsObservable()
+                .Subscribe(_ => { 
+                    _playerCameraController.MoveToView(0);
+
+                    _toMonitor1FromBalconyButton.gameObject.SetActive(false);
+                    _toMonitor2Button.gameObject.SetActive(true);
+
+                    if (IsBalconyUnlocked.Value == true)
+                    {
+                        _toBalconyButton.gameObject.SetActive(true);
+                    }
+
+                })
+                .AddTo(this);
+
+        }
+
+        public void UnlockBalcony()
+        {
+            IsBalconyUnlocked.Value = true;
+        }
+    }
+}
