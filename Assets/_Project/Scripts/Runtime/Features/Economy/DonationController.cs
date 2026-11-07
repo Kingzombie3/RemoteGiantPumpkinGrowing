@@ -1,27 +1,38 @@
 using UnityEngine;
 using UniRx;
 using System;
-using _Project.Scripts.Runtime.Feature.Farm; // Путь к твоей тыкве
+using _Project.Scripts.Runtime.Features.Farm; // Путь к твоей тыкве
 using Random = UnityEngine.Random;
 using _Project.Scripts.Runtime.Core;
 using _Project.Scripts.Runtime.Features.Upgrades;
 using _Project.Scripts.Runtime.Features.Audio;
+using VContainer;
+using _Project.Scripts.Runtime.Features.Economy;
 
 namespace _Project.Scripts.Runtime.Features.Economy
 {
     public class DonationController : MonoBehaviour
     {
-        [Header("Ссылки")]
-        [SerializeField] private Pumpkin _pumpkin;
-        [SerializeField] private WalletManager _walletManager;
-        [SerializeField] private UpgradeManager _upgradeManager;
+
+        private Pumpkin _pumpkin;     
+        private UpgradeManager _upgradeManager;
+        private IWalletService _walletManager;
 
         [Header("Настройки донатов")]
         [SerializeField] private float _checkInterval = 4f; // Раз в 4 секунд
         [SerializeField] private float _donationChance = 0.25f; // 25% шанс
-        [SerializeField] private float _minSizeForDonations = 1.0f; // Начиная с 1 метра
+        [SerializeField] private float _minSizeForDonations = 0.5f; // Начиная с 0.5 метров
 
-        void Start()
+        [Inject]
+        private void Construct(IWalletService wallet, UpgradeManager upgrade, Pumpkin pumpkin)
+        {
+            _walletManager = wallet;
+            _upgradeManager = upgrade;
+            _pumpkin = pumpkin;
+            
+        }
+
+        private void Start()
         {
             if (_pumpkin == null || _walletManager == null)
             {
@@ -65,25 +76,36 @@ namespace _Project.Scripts.Runtime.Features.Economy
 
             if (size >= 1f && size < 2f)
             {
-                return Random.Range(1, 4);
+                return Random.Range(1, 5);
             }
             if (size >= 2f && size < 4f)
             {
-                return Random.Range(3, 7);
+                return Random.Range(4, 10);
+            }
+            if (size >= 4f && size < 7f)
+            {
+                return Random.Range(7, 15);
+            }
+            if (size >= 7f && size < 10f)
+            {
+                return Random.Range(10, 20);
             }
 
-            // Если размер >= 4 метров, включаем логарифмическое сдерживание:
-            // При размере 2м: даст ~4-6 монет.
-            // При размере 100м: даст ~15-20 монет.
-            // При размере 10,000м: даст ~35-40 монет (рост замедлился неприлично сильно).
-            float logBonus = Mathf.Log(size, 2f);
+            float logBonus = Mathf.Log(size - 8f, 1.28f);
 
-            int minCoins = Mathf.FloorToInt(3f + logBonus);
-            int maxCoins = Mathf.FloorToInt(5f + (logBonus * 1.5f));
+            int minCoins = Mathf.FloorToInt(20f + logBonus * 2.2f);
+            int maxCoins = Mathf.FloorToInt(25f + logBonus * 3.2f);
 
-            //лимит на донат 100 монет
             int finalCoins = Random.Range(minCoins, maxCoins + 1);
-            return Mathf.Min(finalCoins, 100);
+
+            // Учитываем апгрейд VR-очков (DonationBonus)
+            if (_upgradeManager != null)
+            {
+                float glassesBonus = _upgradeManager.GetEffectValue(UpgradeEffectType.DonationBonus);
+                finalCoins = Mathf.FloorToInt(finalCoins * (1f + glassesBonus));
+            }
+
+            return Mathf.Min(finalCoins, 250);
         }
     }
 }

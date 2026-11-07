@@ -1,7 +1,7 @@
 using UnityEngine;
 using UniRx;
 using DG.Tweening;
-using _Project.Scripts.Runtime.Feature.Farm; // Твоя папка с тыквой
+using _Project.Scripts.Runtime.Features.Farm; // Твоя папка с тыквой
 
 namespace _Project.Scripts.Runtime.Features.Farm
 {

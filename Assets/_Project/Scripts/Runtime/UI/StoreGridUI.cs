@@ -7,6 +7,8 @@ using _Project.Scripts.Runtime.Features.Upgrades;
 using _Project.Scripts.Runtime.Features.Economy;
 using _Project.Scripts.Runtime.Core;
 using _Project.Scripts.Runtime.Features.UI;
+using VContainer;
+using VContainer.Unity;
 
 namespace _Project.Scripts.Runtime.UI
 {
@@ -14,7 +16,7 @@ namespace _Project.Scripts.Runtime.UI
     {
         [Header("Ссылки на логику")]
         [SerializeField] private UpgradeManager _upgradeManager;
-        [SerializeField] private WalletManager _walletManager;
+        [SerializeField] private WalletService _walletManager;
 
         [Header("База данных апгрейдов")]
         [Tooltip("Перетащи сюда все созданные ScriptableObjects апгрейдов")]
@@ -28,8 +30,15 @@ namespace _Project.Scripts.Runtime.UI
         [Header("Префаб")]
         [SerializeField] private UpgradeItemUI _upgradeItemPrefab;
 
+        private IObjectResolver _container;
+
         private readonly List<GameObject> _spawnedItems = new List<GameObject>();
 
+        [Inject]
+        private void Construct(IObjectResolver container)
+        {
+            _container = container;
+        }
         void Start()
         {
             if (_upgradeManager == null || _categoryDropdown == null || _itemsContainer == null || _upgradeItemPrefab == null)
@@ -76,8 +85,8 @@ namespace _Project.Scripts.Runtime.UI
             // 3. Спавним префабы для отфильтрованных апгрейдов
             foreach (var upgradeData in filteredUpgrades)
             {
-                UpgradeItemUI newItem = Instantiate(_upgradeItemPrefab, _itemsContainer);
-                newItem.Setup(upgradeData, _upgradeManager, _walletManager);
+                UpgradeItemUI newItem = _container.Instantiate(_upgradeItemPrefab, _itemsContainer);
+                newItem.Setup(upgradeData, _upgradeManager);
                 _spawnedItems.Add(newItem.gameObject);
             }
         }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace _Project.Scripts.Runtime.Feature.Cams
+namespace _Project.Scripts.Runtime.Features.Cams
 {
     [RequireComponent(typeof(Camera))]
     public class CameraToScreen : MonoBehaviour

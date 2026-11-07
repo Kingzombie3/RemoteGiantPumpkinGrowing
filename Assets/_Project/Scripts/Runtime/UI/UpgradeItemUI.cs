@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 using UniRx;
 using _Project.Scripts.Runtime.Features.Upgrades;
-using _Project.Scripts.Runtime.Features.Economy;
+using _Project.Scripts.Runtime.Feature.Economy;
+using VContainer;
 
 namespace _Project.Scripts.Runtime.Features.UI
 {
@@ -18,13 +19,19 @@ namespace _Project.Scripts.Runtime.Features.UI
 
         private UpgradeData _data;
         private UpgradeManager _manager;
-        private WalletManager _wallet;
+        private IWalletService _wallet;
 
-        public void Setup(UpgradeData data, UpgradeManager manager, WalletManager wallet)
+        [Inject]
+        private void Constuct(IWalletService wallet, UpgradeManager manager)
+        {
+            _manager = manager;
+            _wallet = wallet;
+        }
+
+        public void Setup(UpgradeData data, UpgradeManager manager)
         {
             _data = data;
             _manager = manager;
-            _wallet = wallet;
 
             // Запускаем реактивное обновление этого конкретного префаба
             _manager.UpgradeLevels.ObserveEveryValueChanged(dict => _manager.GetUpgradeLevel(_data.ID))

@@ -111,3 +111,4 @@ InitTestScene*.unity*
 # Ignoring some stuff
 /Assets/Plugins/Sirenix/
 /Assets/TutorialInfo/
+Run/

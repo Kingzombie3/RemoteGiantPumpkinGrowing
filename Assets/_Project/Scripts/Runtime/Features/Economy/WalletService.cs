@@ -1,9 +1,10 @@
 using UnityEngine;
 using UniRx;
+using _Project.Scripts.Runtime.Features.Economy;
 
 namespace _Project.Scripts.Runtime.Features.Economy
 {
-    public class WalletManager : MonoBehaviour
+    public class WalletService : IWalletService
     {
         public IReadOnlyReactiveProperty<int> Coins => _coins;
         private readonly ReactiveProperty<int> _coins = new ReactiveProperty<int>(0);
@@ -13,7 +14,6 @@ namespace _Project.Scripts.Runtime.Features.Economy
             if (amount <= 0) return;
 
             _coins.Value += amount;
-            Debug.Log($"[Wallet] Получен донат: +{amount} монет. Баланс: {_coins.Value}");
         }
 
         public bool SpendCoins(int amount)
@@ -22,6 +22,11 @@ namespace _Project.Scripts.Runtime.Features.Economy
 
             _coins.Value -= amount;
             return true;
+        }
+
+        public void SetCoins(int amount)
+        {
+            _coins.Value = amount;
         }
     }
 }

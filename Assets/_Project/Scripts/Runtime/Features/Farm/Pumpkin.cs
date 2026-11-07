@@ -9,7 +9,7 @@ using _Project.Scripts.Runtime.Core;
 using _Project.Scripts.Runtime.Features.Farm;
 using _Project.Scripts.Runtime.Features.Upgrades;
 
-namespace _Project.Scripts.Runtime.Feature.Farm
+namespace _Project.Scripts.Runtime.Features.Farm
 {
     public class Pumpkin : MonoBehaviour
     {

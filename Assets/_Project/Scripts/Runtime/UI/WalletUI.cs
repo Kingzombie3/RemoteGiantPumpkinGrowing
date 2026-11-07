@@ -1,16 +1,23 @@
 using UnityEngine;
 using TMPro;
 using UniRx;
+using _Project.Scripts.Runtime.Feature.Economy;
+using VContainer;
 
 namespace _Project.Scripts.Runtime.Features.Economy
 {
-    public class SecondScreenWalletUI : MonoBehaviour
+    public class WalletUI : MonoBehaviour
     {
-        [Header("—сылки")]
-        [SerializeField] private WalletManager _walletManager;
+        private IWalletService _walletManager;
 
         [Header("UI элементы")]
         [SerializeField] private TMP_Text _coinBalanceText_1, _coinBalanceText_2;
+
+        [Inject]
+        private void Construct(IWalletService wallet)
+        {
+            _walletManager = wallet;
+        }
 
         void Start()
         {

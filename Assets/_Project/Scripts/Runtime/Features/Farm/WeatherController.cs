@@ -3,7 +3,7 @@ using UniRx;
 using System;
 using Random = UnityEngine.Random;
 using _Project.Scripts.Runtime.Core;
-using _Project.Scripts.Runtime.Feature.Farm;
+using _Project.Scripts.Runtime.Features.Farm;
 
 namespace _Project.Scripts.Runtime.Features.Farm
 {

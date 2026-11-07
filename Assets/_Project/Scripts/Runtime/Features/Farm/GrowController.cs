@@ -4,18 +4,25 @@ using _Project.Scripts.Runtime.Features.Upgrades;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using VContainer;
 
-namespace _Project.Scripts.Runtime.Feature.Farm
+namespace _Project.Scripts.Runtime.Features.Farm
 {
     public class GrowController : MonoBehaviour
     {
-        [SerializeField] private Pumpkin _pumpkin;
-        [SerializeField] private UpgradeManager _upgradeManager;
-
         [Header("READ ONLY")]
         [SerializeField] private float _totalWater = 0;
         [SerializeField] private float _totalWeed = 0;
 
+        private Pumpkin _pumpkin;
+        private UpgradeManager _upgradeManager;
+
+        [Inject]
+        public void Construct(Pumpkin pumpkin, UpgradeManager upgradeManager)
+        {
+            _pumpkin = pumpkin;
+            _upgradeManager = upgradeManager;
+        }
         void Start()
         {
             // Если забыл перетащить скрипт, ищем его на переданном GameObject
