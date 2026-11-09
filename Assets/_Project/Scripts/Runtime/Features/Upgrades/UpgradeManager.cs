@@ -1,28 +1,26 @@
 using UnityEngine;
 using UniRx;
 using _Project.Scripts.Runtime.Features.Economy;
-using _Project.Scripts.Runtime.Features.UI;
 using _Project.Scripts.Runtime.Features.Audio;
 using _Project.Scripts.Runtime.Features.SaveSystem;
 using System.Collections.Generic;
 using System.Linq;
 using VContainer;
 using _Project.Scripts.Runtime.Core;
-using _Project.Scripts.Runtime.Features.SaveLoadSystem;
-using _Project.Scripts.Runtime.UI;
+using _Project.Scripts.Runtime.Core.SaveSystem;
 
 namespace _Project.Scripts.Runtime.Features.Upgrades
 {
     public class UpgradeManager : MonoBehaviour
     {
-        [Header("Ссылки на UI")]
-        [SerializeField] private RoomNavigationUI _roomNavigationUI;
-        [SerializeField] private StoreGridUI _storeGridUI;
+        [SerializeField] 
+        private List<UpgradeData> _allUpgrades = new List<UpgradeData>();
 
         private WalletService _walletService;
 
         private readonly ReactiveDictionary<string, int> _upgradeLevels = new ReactiveDictionary<string, int>();
         public IReadOnlyReactiveDictionary<string, int> UpgradeLevels => _upgradeLevels;
+        public IReadOnlyList<UpgradeData> AllUpgrades => _allUpgrades;
 
         [Inject]
         public void Construct(WalletService walletService)
@@ -71,8 +69,6 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
                 else
                     _upgradeLevels.Add(upgrade.ID, 1);
 
-                HandleSpecialUpgradeUnlocks(upgrade, currentLevel + 1);
-
                 AudioManager.PlayRandomSound("buy", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
 
                 Debug.Log($"[Upgrades] Куплен апгрейд {upgrade.UpgradeName}. Новый лвл: {GetUpgradeLevel(upgrade.ID)}");
@@ -82,7 +78,7 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
             return false;
         }
 
-        private void HandleSpecialUpgradeUnlocks(UpgradeData upgrade, int newLevel)
+/*        private void HandleSpecialUpgradeUnlocks(UpgradeData upgrade, int newLevel)
         {
             if (upgrade.EffectType == UpgradeEffectType.UnlockBalcony && newLevel > 0)
             {
@@ -92,7 +88,7 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
                     Debug.Log("[UpgradeTrigger] Навигация на балкон разблокирована!");
                 }
             }
-        }
+        }*/
 
         // --- ВОЗВРАЩЕННЫЕ МЕТОДЫ МОДИФИКАТОРОВ (Адаптированы под типы эффектов без хардкод-строк) ---
 
@@ -108,9 +104,8 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
         // Глобальный расчет силы эффектов по их типу
         public float GetEffectValue(UpgradeEffectType effectType)
         {
-            if (_storeGridUI == null) return 0f;
-
-            var matchingUpgrades = _storeGridUI.AllUpgrades.Where(u => u.EffectType == effectType);
+            // ИСПРАВЛЕНО: Лекго и быстро берем данные из своего же списка фичи, а не лезем в UI
+            var matchingUpgrades = _allUpgrades.Where(u => u.EffectType == effectType);
             float totalBonus = 0f;
 
             foreach (var upgrade in matchingUpgrades)

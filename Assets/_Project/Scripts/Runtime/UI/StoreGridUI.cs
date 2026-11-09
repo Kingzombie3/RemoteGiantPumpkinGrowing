@@ -6,7 +6,6 @@ using System.Linq;
 using _Project.Scripts.Runtime.Features.Upgrades;
 using _Project.Scripts.Runtime.Features.Economy;
 using _Project.Scripts.Runtime.Core;
-using _Project.Scripts.Runtime.Features.UI;
 using VContainer;
 using VContainer.Unity;
 
@@ -79,14 +78,14 @@ namespace _Project.Scripts.Runtime.UI
             }
             _spawnedItems.Clear();
 
-            // 2. Фильтруем апгрейды по выбранной категории
-            var filteredUpgrades = _allUpgrades.Where(u => u.Category == selectedCategory).ToList();
+            var filteredUpgrades = _upgradeManager.AllUpgrades
+                .Where(u => u.Category == selectedCategory)
+                .ToList();
 
-            // 3. Спавним префабы для отфильтрованных апгрейдов
             foreach (var upgradeData in filteredUpgrades)
             {
                 UpgradeItemUI newItem = _container.Instantiate(_upgradeItemPrefab, _itemsContainer);
-                newItem.Setup(upgradeData, _upgradeManager);
+                newItem.Setup(upgradeData);
                 _spawnedItems.Add(newItem.gameObject);
             }
         }

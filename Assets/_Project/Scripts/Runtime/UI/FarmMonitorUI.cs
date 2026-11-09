@@ -1,12 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // Если используешь TextMeshPro, если обычный Text — замени на UnityEngine.UI.Text
-using _Project.Scripts.Runtime.Feature.Farm;
 using UniRx;
 using DG.Tweening;
 using _Project.Scripts.Runtime.Core;
+using _Project.Scripts.Runtime.Features.Farm;
 
-namespace _Project.Scripts.Runtime.Features.Farm
+namespace _Project.Scripts.Runtime.UI
 {
     public class FarmMonitorUI : MonoBehaviour
     {

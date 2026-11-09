@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace _Project.Scripts.Runtime.Infrastructure.SaveLoadSystem
+namespace _Project.Scripts.Runtime.Core.SaveSystem
 {
     [Serializable]
     public class SaveData
@@ -11,7 +11,5 @@ namespace _Project.Scripts.Runtime.Infrastructure.SaveLoadSystem
         public float PumpkinSize;
 
         public List<UpgradeSaveEntry> Upgrades = new List<UpgradeSaveEntry>();
-
-        public bool IsBalconyUnlocked;
     }
 }

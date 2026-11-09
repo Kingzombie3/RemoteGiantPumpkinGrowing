@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace _Project.Scripts.Runtime.Infrastructure.SaveLoadSystem
+namespace _Project.Scripts.Runtime.Core.SaveSystem
 {
     [Serializable]
     public struct UpgradeSaveEntry

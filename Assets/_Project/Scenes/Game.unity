@@ -9310,8 +9310,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447abeedc4d281143b1b4f085941c9f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _roomNavigationUI: {fileID: 516342395}
-  _storeGridUI: {fileID: 1153979492}
+  _allUpgrades:
+  - {fileID: 11400000, guid: 729d10fbbbd39a04d9c75ec243a8c4a6, type: 2}
+  - {fileID: 11400000, guid: e67d793f17ed5444f8cd7e9bab26ae37, type: 2}
+  - {fileID: 11400000, guid: 61c009c1a6a543c458bff1009a76f463, type: 2}
+  - {fileID: 11400000, guid: 24ff6f5d45ead0742b0f50cd461aa143, type: 2}
+  - {fileID: 11400000, guid: 25b2f68aa14b5ac4c858d1660821e399, type: 2}
+  - {fileID: 11400000, guid: e5e592d91c2071f469e0b065a9155f70, type: 2}
+  - {fileID: 11400000, guid: b5a13b43351a9f7488f3f197dd9217be, type: 2}
+  - {fileID: 11400000, guid: 72bfb84d2063df5408bdb9e9ad2c21a3, type: 2}
+  - {fileID: 11400000, guid: 600012743b726da47acebc2fe497968e, type: 2}
+  - {fileID: 11400000, guid: 49d80966848c27d4194849f6ce5f9a14, type: 2}
+  - {fileID: 11400000, guid: cf2825ad4f25338429d5b540c8a54282, type: 2}
+  - {fileID: 11400000, guid: a5ba605a34ca2514499fdeb060db59c5, type: 2}
+  - {fileID: 11400000, guid: e9900f0fd88d15d4895c93e935ac33db, type: 2}
+  - {fileID: 11400000, guid: 1082e19ae320374409a7e13bcf616840, type: 2}
 --- !u!1001 &291043563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34636,6 +34649,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 746f3ea53dc15cd46a8e5db5f10005f9, type: 3}
+--- !u!1 &1460892788
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460892789}
+  - component: {fileID: 1460892790}
+  m_Layer: 0
+  m_Name: Debug
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460892789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460892788}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1498523393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1460892790
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460892788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cac45e0676955a545979f16c0eb8c9c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1462885523
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35230,6 +35287,7 @@ Transform:
   - {fileID: 1470472253}
   - {fileID: 290357236}
   - {fileID: 1007725426}
+  - {fileID: 1460892789}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1498712792
@@ -48900,6 +48958,7 @@ MonoBehaviour:
   _growController: {fileID: 1110892529}
   _walletUI: {fileID: 1874952570}
   _storeGridUI: {fileID: 1153979492}
+  _debugProgressReset: {fileID: 1460892790}
 --- !u!4 &2058545129
 Transform:
   m_ObjectHideFlags: 0

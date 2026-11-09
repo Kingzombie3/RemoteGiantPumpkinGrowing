@@ -1,12 +1,13 @@
 using _Project.Scripts.Runtime.Features.Economy;
 using _Project.Scripts.Runtime.Features.Farm;
-using _Project.Scripts.Runtime.Infrastructure.SaveLoadSystem;
-using _Project.Scripts.Runtime.Features.UI;
+using _Project.Scripts.Runtime.Infrastructure.SaveSystem;
 using _Project.Scripts.Runtime.Features.Upgrades;
 using _Project.Scripts.Runtime.UI;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
+using _Project.Scripts.Runtime.Features.SaveSystem;
+using _Project.Scripts.Runtime.UI.DebugTools;
 
 namespace _Project.Scripts.Runtime.Composition
 {
@@ -21,6 +22,7 @@ namespace _Project.Scripts.Runtime.Composition
         [SerializeField] private GrowController _growController;
         [SerializeField] private WalletUI _walletUI;
         [SerializeField] private StoreGridUI _storeGridUI;
+        [SerializeField] private DebugProgressReset _debugProgressReset;
 
         private GameSaveController _saveController;
 
@@ -31,6 +33,8 @@ namespace _Project.Scripts.Runtime.Composition
             builder.Register<WalletService>(Lifetime.Singleton)
                 .AsImplementedInterfaces()
                 .AsSelf();
+
+            builder.Register<SaveService>(Lifetime.Singleton);
 
             builder.RegisterEntryPoint<GameSaveController>(Lifetime.Singleton)
                 .AsSelf();
@@ -45,6 +49,8 @@ namespace _Project.Scripts.Runtime.Composition
             builder.RegisterComponent(_growController);
             builder.RegisterComponent(_walletUI);
             builder.RegisterComponent(_storeGridUI);
+            builder.RegisterComponent(_debugProgressReset);
+
         }
     }
 }

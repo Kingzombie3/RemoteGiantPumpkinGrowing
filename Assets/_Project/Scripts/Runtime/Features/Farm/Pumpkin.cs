@@ -183,5 +183,10 @@ namespace _Project.Scripts.Runtime.Features.Farm
         {
             _timerDisposable.Dispose();
         }
+
+        private void OnApplicationQuit()
+        {
+            
+        }
     }
 }

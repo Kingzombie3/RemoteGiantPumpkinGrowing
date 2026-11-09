@@ -3,10 +3,11 @@ using UnityEngine.UI;
 using TMPro;
 using UniRx;
 using _Project.Scripts.Runtime.Features.Upgrades;
-using _Project.Scripts.Runtime.Feature.Economy;
 using VContainer;
+using _Project.Scripts.Runtime.Core;
+using _Project.Scripts.Runtime.Features.Economy;
 
-namespace _Project.Scripts.Runtime.Features.UI
+namespace _Project.Scripts.Runtime.UI
 {
     public class UpgradeItemUI : MonoBehaviour
     {
@@ -28,10 +29,9 @@ namespace _Project.Scripts.Runtime.Features.UI
             _wallet = wallet;
         }
 
-        public void Setup(UpgradeData data, UpgradeManager manager)
+        public void Setup(UpgradeData data)
         {
             _data = data;
-            _manager = manager;
 
             // Запускаем реактивное обновление этого конкретного префаба
             _manager.UpgradeLevels.ObserveEveryValueChanged(dict => _manager.GetUpgradeLevel(_data.ID))

@@ -2,8 +2,10 @@ using UnityEngine;
 using UnityEngine.UI;
 using UniRx;
 using _Project.Scripts.Runtime.Features.Cams;
+using VContainer;
+using _Project.Scripts.Runtime.Features.Upgrades;
 
-namespace _Project.Scripts.Runtime.Features.UI
+namespace _Project.Scripts.Runtime.UI
 {
     public class RoomNavigationUI : MonoBehaviour
     {
@@ -16,7 +18,15 @@ namespace _Project.Scripts.Runtime.Features.UI
         [SerializeField] private Button _toMonitor2Button;
         [SerializeField] private Button _toBalconyButton;
 
+        private UpgradeManager _upgradeManager;
+
         public BoolReactiveProperty IsBalconyUnlocked { get; } = new BoolReactiveProperty(false);
+
+        [Inject]
+        private void Construct(UpgradeManager upgrade)
+        {
+            _upgradeManager = upgrade;
+        }
 
         void Start()
         {
@@ -80,6 +90,19 @@ namespace _Project.Scripts.Runtime.Features.UI
                 })
                 .AddTo(this);
 
+            if (_upgradeManager != null)
+            {
+                _upgradeManager.UpgradeLevels
+                    .ObserveEveryValueChanged(dict => _upgradeManager.GetUpgradeLevel("upgrade_telescope"))
+                    .Subscribe(level =>
+                    {
+                        if (level > 0)
+                        {
+                            UnlockBalcony();
+                        }
+                    })
+                    .AddTo(this);
+            }
         }
 
         public void UnlockBalcony()

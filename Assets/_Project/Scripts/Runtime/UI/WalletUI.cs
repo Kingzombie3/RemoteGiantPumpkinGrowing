@@ -1,10 +1,10 @@
 using UnityEngine;
 using TMPro;
 using UniRx;
-using _Project.Scripts.Runtime.Feature.Economy;
+using _Project.Scripts.Runtime.Features.Economy;
 using VContainer;
 
-namespace _Project.Scripts.Runtime.Features.Economy
+namespace _Project.Scripts.Runtime.UI
 {
     public class WalletUI : MonoBehaviour
     {
