@@ -25,7 +25,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
         [Header("Скорость ухудшения параметров (ед/сек)")]
         [SerializeField] private float _thirstDepletionSpeed = 0.1f;
-        [SerializeField] private float _weedGrowthSpeed = 0.1f;
+        [SerializeField] private float _weedGrowthSpeed = 0.1f;      
 
         public WeatherType CurrentWeather = WeatherType.Normal;
 
@@ -39,6 +39,9 @@ namespace _Project.Scripts.Runtime.Features.Farm
         [SerializeField] private float _totalGrow = 0;
         [SerializeField] private float _totalThirst = 0;
         [SerializeField] private float _totalGrassing = 0;
+
+        [Header("Glasses")]
+        [SerializeField] private GameObject _glassesObj;
 
         private void Start()
         {
@@ -56,6 +59,20 @@ namespace _Project.Scripts.Runtime.Features.Farm
             else
             {
                 RestartGameTimer(1.0f);
+            }
+
+            UpdateGlassesVisibility();
+
+            if (_upgradeManager != null)
+            {
+                // Нативно слушаем любые изменения внутри реактивного словаря (добавление, повышение уровня, очистка при загрузке/сбросе)
+                Observable.Merge(
+                    _upgradeManager.UpgradeLevels.ObserveAdd().AsUnitObservable(),
+                    _upgradeManager.UpgradeLevels.ObserveReplace().AsUnitObservable(),
+                    _upgradeManager.UpgradeLevels.ObserveReset().AsUnitObservable()
+                )
+                .Subscribe(_ => UpdateGlassesVisibility())
+                .AddTo(this);
             }
 
             PumpkinSize
@@ -178,6 +195,15 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
             return ((_baseGrowSpeed / Mathf.Log(PumpkinSize.Value + 1.1f)) * totalMultiplier);
         }
+
+        private void UpdateGlassesVisibility()
+        {
+            if (_glassesObj == null) return;
+
+            bool hasGlasses = _upgradeManager != null && _upgradeManager.GetEffectValue(UpgradeEffectType.DonationBonus) > 0f;
+            _glassesObj.SetActive(hasGlasses);
+        }
+
 
         private void OnDestroy()
         {

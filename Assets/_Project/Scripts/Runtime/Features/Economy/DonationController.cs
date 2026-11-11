@@ -54,16 +54,20 @@ namespace _Project.Scripts.Runtime.Features.Economy
             // Проверяем базовое условие размера
             if (size < _minSizeForDonations)
             {
-                //Debug.Log("Не фортануло");
+                
                 return;
             }
 
             float upgradeChanceBonus = _upgradeManager != null ? _upgradeManager.GetEffectValue(UpgradeEffectType.DonationChanceBonus) : 0f;
             float finalDonationChance = _donationChance + upgradeChanceBonus;
 
-            if (Random.value > finalDonationChance) return;
+            if (Random.value > finalDonationChance)
+            {
+                Debug.Log("Не фортануло");
+                return; 
+            }
 
-            AudioManager.PlayRandomSound("donate", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
+                AudioManager.PlayRandomSound("donate", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
 
             int donationAmount = CalculateDonation(size);
             _walletManager.AddCoins(donationAmount);
@@ -74,7 +78,7 @@ namespace _Project.Scripts.Runtime.Features.Economy
         {
             // Используем формулу: БазовыйРанг + Log(Размер) * Множитель.
 
-            if (size >= 1f && size < 2f)
+            if (size >= _minSizeForDonations && size < 2f)
             {
                 return Random.Range(1, 5);
             }
@@ -98,7 +102,6 @@ namespace _Project.Scripts.Runtime.Features.Economy
 
             int finalCoins = Random.Range(minCoins, maxCoins + 1);
 
-            // Учитываем апгрейд VR-очков (DonationBonus)
             if (_upgradeManager != null)
             {
                 float glassesBonus = _upgradeManager.GetEffectValue(UpgradeEffectType.DonationBonus);

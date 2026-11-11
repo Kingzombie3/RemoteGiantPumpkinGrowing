@@ -1913,6 +1913,7 @@ GameObject:
   - component: {fileID: 72405211}
   - component: {fileID: 72405213}
   - component: {fileID: 72405212}
+  - component: {fileID: 72405214}
   m_Layer: 0
   m_Name: wine1 (2)
   m_TagString: Untagged
@@ -1985,6 +1986,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 72405210}
   m_Mesh: {fileID: 6145590476215406727, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &72405214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 72405210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &72414376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7909,6 +7922,7 @@ GameObject:
   - component: {fileID: 230316171}
   - component: {fileID: 230316173}
   - component: {fileID: 230316172}
+  - component: {fileID: 230316174}
   m_Layer: 0
   m_Name: grass4 (2)
   m_TagString: Untagged
@@ -7981,6 +7995,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 230316170}
   m_Mesh: {fileID: 6928130291644254313, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &230316174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230316170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &235982350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300880793226883476, guid: a97adb06bfa761840b921bc797f9b69b, type: 3}
@@ -8002,6 +8028,7 @@ GameObject:
   - component: {fileID: 241447033}
   - component: {fileID: 241447035}
   - component: {fileID: 241447034}
+  - component: {fileID: 241447036}
   m_Layer: 0
   m_Name: grass4 (4)
   m_TagString: Untagged
@@ -8074,6 +8101,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 241447032}
   m_Mesh: {fileID: 6928130291644254313, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &241447036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 241447032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &243151174 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7543784001888437184, guid: 61e50d7284f7453488d849b96d99a48e, type: 3}
@@ -10402,6 +10441,7 @@ GameObject:
   - component: {fileID: 333320652}
   - component: {fileID: 333320654}
   - component: {fileID: 333320653}
+  - component: {fileID: 333320655}
   m_Layer: 0
   m_Name: grass4 (3)
   m_TagString: Untagged
@@ -10474,6 +10514,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 333320651}
   m_Mesh: {fileID: 6928130291644254313, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &333320655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333320651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &333879587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300880793226883476, guid: a97adb06bfa761840b921bc797f9b69b, type: 3}
@@ -12448,6 +12500,7 @@ GameObject:
   - component: {fileID: 440513556}
   - component: {fileID: 440513558}
   - component: {fileID: 440513557}
+  - component: {fileID: 440513559}
   m_Layer: 0
   m_Name: grass3 (3)
   m_TagString: Untagged
@@ -12520,6 +12573,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 440513555}
   m_Mesh: {fileID: -7807191250884864753, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &440513559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 440513555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &440557476 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6109667229996435940, guid: 48d2e97472f3bf84a844879441514e87, type: 3}
@@ -13818,6 +13883,7 @@ GameObject:
   - component: {fileID: 499492919}
   - component: {fileID: 499492921}
   - component: {fileID: 499492920}
+  - component: {fileID: 499492922}
   m_Layer: 0
   m_Name: grass1 (4)
   m_TagString: Untagged
@@ -13890,6 +13956,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 499492918}
   m_Mesh: {fileID: 2147068774071638099, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &499492922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 499492918}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &503649074
 GameObject:
   m_ObjectHideFlags: 0
@@ -14392,6 +14470,7 @@ GameObject:
   - component: {fileID: 528191977}
   - component: {fileID: 528191979}
   - component: {fileID: 528191978}
+  - component: {fileID: 528191980}
   m_Layer: 0
   m_Name: grass1 (3)
   m_TagString: Untagged
@@ -14464,6 +14543,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 528191976}
   m_Mesh: {fileID: 2147068774071638099, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &528191980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528191976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &530939085
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16490,6 +16581,7 @@ GameObject:
   - component: {fileID: 622177183}
   - component: {fileID: 622177185}
   - component: {fileID: 622177184}
+  - component: {fileID: 622177186}
   m_Layer: 0
   m_Name: grass2 (1)
   m_TagString: Untagged
@@ -16562,6 +16654,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 622177182}
   m_Mesh: {fileID: 8344062179274750414, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &622177186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622177182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &622609100 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300880793226883476, guid: a97adb06bfa761840b921bc797f9b69b, type: 3}
@@ -17571,6 +17675,7 @@ GameObject:
   - component: {fileID: 651417462}
   - component: {fileID: 651417464}
   - component: {fileID: 651417463}
+  - component: {fileID: 651417465}
   m_Layer: 0
   m_Name: grass3 (1)
   m_TagString: Untagged
@@ -17643,6 +17748,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 651417461}
   m_Mesh: {fileID: -7807191250884864753, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &651417465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651417461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &653546540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8528410969833698634, guid: bde0b0b41bb9b804ebfe2be8949d92c3, type: 3}
@@ -19847,6 +19964,7 @@ GameObject:
   - component: {fileID: 758544796}
   - component: {fileID: 758544798}
   - component: {fileID: 758544797}
+  - component: {fileID: 758544799}
   m_Layer: 0
   m_Name: grass4 (6)
   m_TagString: Untagged
@@ -19919,6 +20037,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758544795}
   m_Mesh: {fileID: 6928130291644254313, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &758544799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 758544795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &759875333 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300880793226883476, guid: a97adb06bfa761840b921bc797f9b69b, type: 3}
@@ -22551,6 +22681,7 @@ GameObject:
   - component: {fileID: 887376489}
   - component: {fileID: 887376491}
   - component: {fileID: 887376490}
+  - component: {fileID: 887376492}
   m_Layer: 0
   m_Name: grass1 (1)
   m_TagString: Untagged
@@ -22623,6 +22754,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887376488}
   m_Mesh: {fileID: 2147068774071638099, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &887376492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 887376488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &888195634
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22764,6 +22907,7 @@ GameObject:
   - component: {fileID: 889824571}
   - component: {fileID: 889824573}
   - component: {fileID: 889824572}
+  - component: {fileID: 889824574}
   m_Layer: 0
   m_Name: grass4 (1)
   m_TagString: Untagged
@@ -22836,6 +22980,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 889824570}
   m_Mesh: {fileID: 6928130291644254313, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &889824574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 889824570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &890283546
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26051,6 +26207,7 @@ GameObject:
   - component: {fileID: 1017470778}
   - component: {fileID: 1017470780}
   - component: {fileID: 1017470779}
+  - component: {fileID: 1017470781}
   m_Layer: 0
   m_Name: grass1 (2)
   m_TagString: Untagged
@@ -26123,6 +26280,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1017470777}
   m_Mesh: {fileID: 2147068774071638099, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1017470781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1017470777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1020506955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27171,6 +27340,7 @@ GameObject:
   - component: {fileID: 1060173681}
   - component: {fileID: 1060173683}
   - component: {fileID: 1060173682}
+  - component: {fileID: 1060173684}
   m_Layer: 0
   m_Name: grass4 (5)
   m_TagString: Untagged
@@ -27243,6 +27413,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060173680}
   m_Mesh: {fileID: 6928130291644254313, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1060173684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060173680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1061900419 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8075447824420031238, guid: 51037e8ebcbe7934e9fd19d0bb3f9763, type: 3}
@@ -29371,6 +29553,7 @@ MonoBehaviour:
   _totalGrow: 0
   _totalThirst: 0
   _totalGrassing: 0
+  _glassesObj: {fileID: 919132149018069150}
 --- !u!1001 &1160737826
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30169,6 +30352,7 @@ GameObject:
   - component: {fileID: 1197995370}
   - component: {fileID: 1197995372}
   - component: {fileID: 1197995371}
+  - component: {fileID: 1197995373}
   m_Layer: 0
   m_Name: wine1 (1)
   m_TagString: Untagged
@@ -30241,6 +30425,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1197995369}
   m_Mesh: {fileID: 6145590476215406727, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1197995373
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1197995369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1198421171 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300880793226883476, guid: a97adb06bfa761840b921bc797f9b69b, type: 3}
@@ -30750,6 +30946,7 @@ GameObject:
   - component: {fileID: 1241333775}
   - component: {fileID: 1241333777}
   - component: {fileID: 1241333776}
+  - component: {fileID: 1241333778}
   m_Layer: 0
   m_Name: grass2 (2)
   m_TagString: Untagged
@@ -30822,6 +31019,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241333774}
   m_Mesh: {fileID: 8344062179274750414, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1241333778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241333774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1244448861 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1190995455649073363, guid: fa9b3057ee026bb41a40d9f7eabfef7c, type: 3}
@@ -33461,6 +33670,7 @@ GameObject:
   - component: {fileID: 1361913388}
   - component: {fileID: 1361913390}
   - component: {fileID: 1361913389}
+  - component: {fileID: 1361913391}
   m_Layer: 0
   m_Name: wine2 (1)
   m_TagString: Untagged
@@ -33533,6 +33743,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361913387}
   m_Mesh: {fileID: -5713207809458280834, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1361913391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361913387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1362240799
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36209,9 +36431,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60d6572503a95bb4cbb76081236472a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _checkInterval: 10
+  _checkInterval: 4
   _donationChance: 0.25
-  _minSizeForDonations: 1
+  _minSizeForDonations: 0.5
 --- !u!4 &1471983345 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2515697713448990657, guid: 1876e96a48eea50458d7e14f141123ed, type: 3}
@@ -38876,6 +39098,7 @@ GameObject:
   - component: {fileID: 1586202337}
   - component: {fileID: 1586202339}
   - component: {fileID: 1586202338}
+  - component: {fileID: 1586202340}
   m_Layer: 0
   m_Name: grass2 (3)
   m_TagString: Untagged
@@ -38948,6 +39171,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586202336}
   m_Mesh: {fileID: 8344062179274750414, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1586202340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1586202336}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1589575103
 GameObject:
   m_ObjectHideFlags: 0
@@ -42352,6 +42587,7 @@ GameObject:
   - component: {fileID: 1780176941}
   - component: {fileID: 1780176943}
   - component: {fileID: 1780176942}
+  - component: {fileID: 1780176944}
   m_Layer: 0
   m_Name: grass2 (4)
   m_TagString: Untagged
@@ -42424,6 +42660,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780176940}
   m_Mesh: {fileID: 8344062179274750414, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &1780176944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780176940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1780339672 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5300880793226883476, guid: a97adb06bfa761840b921bc797f9b69b, type: 3}
@@ -49833,6 +50081,7 @@ GameObject:
   - component: {fileID: 2037563098}
   - component: {fileID: 2037563100}
   - component: {fileID: 2037563099}
+  - component: {fileID: 2037563101}
   m_Layer: 0
   m_Name: grass3 (2)
   m_TagString: Untagged
@@ -49905,6 +50154,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037563097}
   m_Mesh: {fileID: -7807191250884864753, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &2037563101
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037563097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2037888878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6109667229996435940, guid: 48d2e97472f3bf84a844879441514e87, type: 3}
@@ -50447,7 +50708,8 @@ MonoBehaviour:
   parentReference:
     TypeName: 
   autoRun: 1
-  autoInjectGameObjects: []
+  autoInjectGameObjects:
+  - {fileID: 1159814509}
   _pumpkin: {fileID: 1159814514}
   _upgradeManager: {fileID: 290357237}
   _roomNavigationUI: {fileID: 516342395}
@@ -53622,6 +53884,7 @@ GameObject:
   - component: {fileID: 6885246000067269310}
   - component: {fileID: 3520625913303932888}
   - component: {fileID: 9020960524172585337}
+  - component: {fileID: 9020960524172585338}
   m_Layer: 0
   m_Name: grass2
   m_TagString: Untagged
@@ -53713,6 +53976,7 @@ GameObject:
   - component: {fileID: 6920952623779112549}
   - component: {fileID: 5123563683542786726}
   - component: {fileID: 3710737952322862663}
+  - component: {fileID: 6920952623779112550}
   m_Layer: 0
   m_Name: wine1
   m_TagString: Untagged
@@ -53731,6 +53995,7 @@ GameObject:
   - component: {fileID: 310580170179606835}
   - component: {fileID: 398160859192243258}
   - component: {fileID: 5052543524217798426}
+  - component: {fileID: 5052543524217798427}
   m_Layer: 0
   m_Name: grass3
   m_TagString: Untagged
@@ -53749,6 +54014,7 @@ GameObject:
   - component: {fileID: 7282992488634363221}
   - component: {fileID: 5726396792597644090}
   - component: {fileID: 1743809042001980198}
+  - component: {fileID: 7282992488634363222}
   m_Layer: 0
   m_Name: grass1
   m_TagString: Untagged
@@ -53798,6 +54064,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5052543524217798427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452959333554659246}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &5123563683542786726
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -53825,6 +54103,7 @@ GameObject:
   - component: {fileID: 3721997453306267435}
   - component: {fileID: 2947390847607347423}
   - component: {fileID: 863001691286348841}
+  - component: {fileID: 5987847979897880842}
   m_Layer: 0
   m_Name: grass4
   m_TagString: Untagged
@@ -53832,6 +54111,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5987847979897880842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5987847979897880841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &6885246000067269310
 Transform:
   m_ObjectHideFlags: 0
@@ -53862,6 +54153,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 542298268}
   m_LocalEulerAnglesHint: {x: -1.703, y: 76.634, z: -13.6}
+--- !u!114 &6920952623779112550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4279739892077627662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &7282992488634363221
 Transform:
   m_ObjectHideFlags: 0
@@ -53877,6 +54180,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1159814513}
   m_LocalEulerAnglesHint: {x: 0, y: 69.128, z: 0}
+--- !u!114 &7282992488634363222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907177804560485570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8065285712624550256
 GameObject:
   m_ObjectHideFlags: 0
@@ -53888,6 +54203,7 @@ GameObject:
   - component: {fileID: 2065326230578243895}
   - component: {fileID: 8974824568140272146}
   - component: {fileID: 1346396523583453558}
+  - component: {fileID: 8974824568140272147}
   m_Layer: 0
   m_Name: wine2
   m_TagString: Untagged
@@ -53903,6 +54219,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8065285712624550256}
   m_Mesh: {fileID: -5713207809458280834, guid: 1f7cd50a3797f8b4bbdfcd75ff3ffd6e, type: 3}
+--- !u!114 &8974824568140272147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8065285712624550256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &9020960524172585337
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -53945,6 +54273,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &9020960524172585338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3421862833862564737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f368e4be4dffb84bb8159c39640f6e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

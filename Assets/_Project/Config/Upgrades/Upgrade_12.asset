@@ -24,5 +24,5 @@ MonoBehaviour:
   EffectType: 2
   BasePrice: 100
   PriceMultiplier: 1.5
-  MaxLevel: 5
+  MaxLevel: 7
   ValuePerLevel: 100
