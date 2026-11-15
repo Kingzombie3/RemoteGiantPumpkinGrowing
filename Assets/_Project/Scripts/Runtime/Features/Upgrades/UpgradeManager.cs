@@ -1,13 +1,15 @@
 using UnityEngine;
 using UniRx;
 using _Project.Scripts.Runtime.Features.Economy;
-using _Project.Scripts.Runtime.Features.Audio;
+using _Project.Scripts.Runtime.Infrastructure.Audio;
 using _Project.Scripts.Runtime.Features.SaveSystem;
 using System.Collections.Generic;
 using System.Linq;
 using VContainer;
-using _Project.Scripts.Runtime.Core;
 using _Project.Scripts.Runtime.Core.SaveSystem;
+using _Project.Scripts.Runtime.Core.Upgrades;
+using _Project.Scripts.Runtime.Core.Audio;
+using _Project.Scripts.Runtime.Features.Farm;
 
 namespace _Project.Scripts.Runtime.Features.Upgrades
 {
@@ -22,15 +24,15 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
         public IReadOnlyReactiveDictionary<string, int> UpgradeLevels => _upgradeLevels;
         public IReadOnlyList<UpgradeData> AllUpgrades => _allUpgrades;
 
+        private IAudioService _audioService;
+
         [Inject]
-        public void Construct(WalletService walletService)
+        public void Construct(WalletService walletService, IAudioService audioService)
         {
             _walletService = walletService;
+            _audioService = audioService;
         }
 
-        /// <summary>
-        /// Принудительно загружает уровни апгрейдов из файла сохранения.
-        /// </summary>
         public void LoadUpgradeLevelsDirectly(List<UpgradeSaveEntry> savedUpgrades)
         {
             _upgradeLevels.Clear();
@@ -69,7 +71,7 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
                 else
                     _upgradeLevels.Add(upgrade.ID, 1);
 
-                AudioManager.PlayRandomSound("buy", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
+                _audioService.PlayRandomSound("buy", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
 
                 Debug.Log($"[Upgrades] Куплен апгрейд {upgrade.UpgradeName}. Новый лвл: {GetUpgradeLevel(upgrade.ID)}");
                 return true;
@@ -78,33 +80,14 @@ namespace _Project.Scripts.Runtime.Features.Upgrades
             return false;
         }
 
-/*        private void HandleSpecialUpgradeUnlocks(UpgradeData upgrade, int newLevel)
-        {
-            if (upgrade.EffectType == UpgradeEffectType.UnlockBalcony && newLevel > 0)
-            {
-                if (_roomNavigationUI != null)
-                {
-                    _roomNavigationUI.UnlockBalcony();
-                    Debug.Log("[UpgradeTrigger] Навигация на балкон разблокирована!");
-                }
-            }
-        }*/
-
-        // --- ВОЗВРАЩЕННЫЕ МЕТОДЫ МОДИФИКАТОРОВ (Адаптированы под типы эффектов без хардкод-строк) ---
-
-        // Сила клика лейки: базовый 1.0 + динамический бонус от всех улучшений леек
         public float GetClickWaterPower() => 1f + GetEffectValue(UpgradeEffectType.ClickWaterBonus);
 
-        // Множитель роста: базовый 1.0 + динамический бонус от всех купленных удобрений
         public float GetGrowthMultiplier() => 1f + GetEffectValue(UpgradeEffectType.BaseGrowthMultiplier);
 
-        // Проверка активности искривления времени (Магические часы)
         public bool IsTimeWarpActive() => GetEffectValue(UpgradeEffectType.TimeWarp) > 0f;
 
-        // Глобальный расчет силы эффектов по их типу
         public float GetEffectValue(UpgradeEffectType effectType)
         {
-            // ИСПРАВЛЕНО: Лекго и быстро берем данные из своего же списка фичи, а не лезем в UI
             var matchingUpgrades = _allUpgrades.Where(u => u.EffectType == effectType);
             float totalBonus = 0f;
 

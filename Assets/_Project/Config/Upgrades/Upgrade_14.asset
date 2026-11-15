@@ -22,6 +22,7 @@ MonoBehaviour:
   Category: 4
   EffectType: 8
   BasePrice: 50
-  PriceMultiplier: 1.5
-  MaxLevel: 5
-  ValuePerLevel: 5
+  PriceMultiplier: 1.4
+  MaxLevel: 10
+  ValuePerLevel: 0.05
+  image: {fileID: 1292458922, guid: 6b93bd77b6af4ec4ca52119188be8fd4, type: 3}

@@ -4,8 +4,8 @@ using TMPro;
 using UniRx;
 using _Project.Scripts.Runtime.Features.Upgrades;
 using VContainer;
-using _Project.Scripts.Runtime.Core;
 using _Project.Scripts.Runtime.Features.Economy;
+using _Project.Scripts.Runtime.Core.Upgrades;
 
 namespace _Project.Scripts.Runtime.UI
 {
@@ -17,6 +17,7 @@ namespace _Project.Scripts.Runtime.UI
         [SerializeField] private TMP_Text _costText;
         [SerializeField] private TMP_Text _levelText;
         [SerializeField] private Button _buyButton;
+        [SerializeField] private Image _image;
 
         private UpgradeData _data;
         private UpgradeManager _manager;
@@ -47,6 +48,8 @@ namespace _Project.Scripts.Runtime.UI
             _buyButton.OnClickAsObservable()
                 .Subscribe(_ => _manager.TryBuyUpgrade(_data))
                 .AddTo(this);
+
+            _image.sprite = _data.image;
         }
 
         private void UpdateUI()
@@ -59,7 +62,7 @@ namespace _Project.Scripts.Runtime.UI
             if (currentLevel >= _data.MaxLevel)
             {
                 _levelText.text = $"сп: люйя";
-                _costText.text = "йсокемн";
+                _costText.text = " ";
                 _buyButton.interactable = false;
             }
             else

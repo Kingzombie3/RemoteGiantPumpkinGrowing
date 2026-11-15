@@ -24,3 +24,4 @@ MonoBehaviour:
   PriceMultiplier: 1
   MaxLevel: 1
   ValuePerLevel: 1
+  image: {fileID: -1878867439, guid: 6b93bd77b6af4ec4ca52119188be8fd4, type: 3}

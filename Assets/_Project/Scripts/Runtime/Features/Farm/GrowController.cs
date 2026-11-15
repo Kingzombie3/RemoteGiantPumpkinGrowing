@@ -1,10 +1,11 @@
-using _Project.Scripts.Runtime.Core;
-using _Project.Scripts.Runtime.Features.Audio;
+using _Project.Scripts.Runtime.Core.Upgrades;
+using _Project.Scripts.Runtime.Infrastructure.Audio;
 using _Project.Scripts.Runtime.Features.Upgrades;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using VContainer;
+using _Project.Scripts.Runtime.Core.Audio;
 
 namespace _Project.Scripts.Runtime.Features.Farm
 {
@@ -16,12 +17,14 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
         private Pumpkin _pumpkin;
         private UpgradeManager _upgradeManager;
+        private IAudioService _audioService;
 
         [Inject]
-        public void Construct(Pumpkin pumpkin, UpgradeManager upgradeManager)
+        public void Construct(Pumpkin pumpkin, UpgradeManager upgradeManager, IAudioService audioService)
         {
             _pumpkin = pumpkin;
             _upgradeManager = upgradeManager;
+            _audioService = audioService;
         }
         void Start()
         {
@@ -58,7 +61,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
             _pumpkin.PumpkinThirsting.Value = Mathf.Min(1f, _pumpkin.PumpkinThirsting.Value + finalWater); // watering
 
-            AudioManager.PlayRandomSound("water", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
+            _audioService.PlayRandomSound("water", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
 
             if (_pumpkin.PumpkinThirsting.Value == 1)
             {
@@ -84,7 +87,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
             _pumpkin.PumpkinWeeding.Value = Mathf.Min(1f, _pumpkin.PumpkinWeeding.Value + 0.1f); // weeding
 
-            AudioManager.PlayRandomSound("weed", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
+            _audioService.PlayRandomSound("weed", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
 
             if (_pumpkin.PumpkinWeeding.Value == 1) 
             {

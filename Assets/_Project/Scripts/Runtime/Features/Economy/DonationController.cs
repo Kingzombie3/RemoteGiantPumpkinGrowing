@@ -1,13 +1,14 @@
 using UnityEngine;
 using UniRx;
 using System;
-using _Project.Scripts.Runtime.Features.Farm; // Путь к твоей тыкве
+using _Project.Scripts.Runtime.Features.Farm;
 using Random = UnityEngine.Random;
-using _Project.Scripts.Runtime.Core;
+using _Project.Scripts.Runtime.Core.Upgrades;
 using _Project.Scripts.Runtime.Features.Upgrades;
-using _Project.Scripts.Runtime.Features.Audio;
+using _Project.Scripts.Runtime.Infrastructure.Audio;
 using VContainer;
 using _Project.Scripts.Runtime.Features.Economy;
+using _Project.Scripts.Runtime.Core.Audio;
 
 namespace _Project.Scripts.Runtime.Features.Economy
 {
@@ -17,6 +18,7 @@ namespace _Project.Scripts.Runtime.Features.Economy
         private Pumpkin _pumpkin;     
         private UpgradeManager _upgradeManager;
         private IWalletService _walletManager;
+        private IAudioService _audioService;
 
         [Header("Настройки донатов")]
         [SerializeField] private float _checkInterval = 4f; // Раз в 4 секунд
@@ -24,12 +26,12 @@ namespace _Project.Scripts.Runtime.Features.Economy
         [SerializeField] private float _minSizeForDonations = 0.5f; // Начиная с 0.5 метров
 
         [Inject]
-        private void Construct(IWalletService wallet, UpgradeManager upgrade, Pumpkin pumpkin)
+        private void Construct(IWalletService wallet, UpgradeManager upgrade, Pumpkin pumpkin, IAudioService audioService)
         {
             _walletManager = wallet;
             _upgradeManager = upgrade;
             _pumpkin = pumpkin;
-            
+            _audioService = audioService;
         }
 
         private void Start()
@@ -40,7 +42,6 @@ namespace _Project.Scripts.Runtime.Features.Economy
                 return;
             }
 
-            // Запускаем реактивный таймер проверок
             Observable.Interval(TimeSpan.FromSeconds(_checkInterval))
                 .ObserveOnMainThread()
                 .Subscribe(_ => TryReceiveDonation())
@@ -51,7 +52,6 @@ namespace _Project.Scripts.Runtime.Features.Economy
         {
             float size = _pumpkin.PumpkinSize.Value;
 
-            // Проверяем базовое условие размера
             if (size < _minSizeForDonations)
             {
                 
@@ -61,13 +61,16 @@ namespace _Project.Scripts.Runtime.Features.Economy
             float upgradeChanceBonus = _upgradeManager != null ? _upgradeManager.GetEffectValue(UpgradeEffectType.DonationChanceBonus) : 0f;
             float finalDonationChance = _donationChance + upgradeChanceBonus;
 
-            if (Random.value > finalDonationChance)
+            float chance = Random.value;
+
+            Debug.Log($"шанс доната был {chance} / {finalDonationChance}");
+
+            if (chance > finalDonationChance)
             {
-                Debug.Log("Не фортануло");
                 return; 
             }
 
-                AudioManager.PlayRandomSound("donate", minVolume: 0.8f, maxVolume: 1.0f, minPitch: 0.9f, maxPitch: 1.1f);
+            _audioService.PlayRandomSound("donate", minVolume: 0.6f, maxVolume: 0.8f, minPitch: 0.9f, maxPitch: 1.1f);
 
             int donationAmount = CalculateDonation(size);
             _walletManager.AddCoins(donationAmount);

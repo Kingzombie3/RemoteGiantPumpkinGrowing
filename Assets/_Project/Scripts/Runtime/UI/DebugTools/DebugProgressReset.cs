@@ -43,7 +43,12 @@ namespace _Project.Scripts.Runtime.UI.DebugTools
 
                 // 2. Обнуляем живые параметры в оперативной памяти (тоже в одном месте!)
                 _walletService?.SetCoins(0);
-                if (_pumpkin != null) _pumpkin.PumpkinSize.Value = 0.1f;
+                if (_pumpkin != null)
+                {
+                    _pumpkin.PumpkinSize.Value = 0.01f;
+                    _pumpkin.PumpkinName.Value = "";
+                    _pumpkin.IsNamed.Value = false;
+                }
                 _upgradeManager?.LoadUpgradeLevelsDirectly(new List<UpgradeSaveEntry>());
 
                 Debug.Log("<color=#00FFFF>[Debug]</color> Прогресс успешно сброшен в рантайме!");

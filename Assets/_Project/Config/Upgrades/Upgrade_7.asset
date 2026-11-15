@@ -21,6 +21,7 @@ MonoBehaviour:
   Category: 3
   EffectType: 6
   BasePrice: 15
-  PriceMultiplier: 1.5
+  PriceMultiplier: 3
   MaxLevel: 3
-  ValuePerLevel: 0.58
+  ValuePerLevel: 0.66
+  image: {fileID: 179414447, guid: 6b93bd77b6af4ec4ca52119188be8fd4, type: 3}

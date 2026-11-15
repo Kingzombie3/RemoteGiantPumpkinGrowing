@@ -17,8 +17,8 @@ namespace _Project.Scripts.Runtime.Features.Farm
         [Header("Пороги изменения (в метрах)")]
         [SerializeField] private float[] _stageThresholds = { 10f, 100f, 1000f };
 
-        [Header("Настройки UI на камере")]
-        [SerializeField] private float _uiDistanceOffset = 0.5f;
+/*        [Header("Настройки UI на камере")]
+        [SerializeField] private float _uiDistanceOffset = 0.5f;*/
         [Tooltip("Базовый скейл Canvas на первом этапе")]
         [SerializeField] private float _baseUiScale = 0.39f;
 
@@ -79,9 +79,9 @@ namespace _Project.Scripts.Runtime.Features.Farm
             }
             else
             {
-                float duration = 1.5f; // Базовое время по умолчанию
+                float duration = 10f; // Базовое время по умолчанию
 
-                int zPos = Mathf.RoundToInt(targetPoint.position.z);
+/*                int zPos = Mathf.RoundToInt(targetPoint.position.z);
                 switch (zPos)
                 {
                     case -10:
@@ -93,7 +93,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
                     case -1000:
                         duration = 5f;
                         break;
-                }
+                }*/
 
                 transform.DOKill();
 

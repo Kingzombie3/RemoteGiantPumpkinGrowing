@@ -1,0 +1,307 @@
+fileFormatVersion: 2
+guid: b5501e054ccaf0e479254ed2a6e758f0
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_2
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 698
+        width: 485
+        height: 378
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95f28a1c8aa794c40873dcce40179b6f
+      internalID: 1973274289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 751
+        width: 461
+        height: 329
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454908ff496b784489a70ebb32c58493
+      internalID: 1909123147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_3
+      rect:
+        serializedVersion: 2
+        x: 950
+        y: 707
+        width: 233
+        height: 371
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 126e7257ae46e7d4b8cc041a230852d0
+      internalID: 1930395106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_4
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 706
+        width: 642
+        height: 364
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3004c4e2daad7224cbfeab5ead9f2a57
+      internalID: -1525814276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_5
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 290
+        width: 635
+        height: 375
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ff7c574b3777ae4989a84b644662e97
+      internalID: -1865688225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_6
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 252
+        width: 497
+        height: 389
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a0cf65b6f554a54bb97d1a509103e23
+      internalID: -497537084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: pumpkinIntroComix_pictures_2_7
+      rect:
+        serializedVersion: 2
+        x: 1253
+        y: 283
+        width: 566
+        height: 315
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b701cb12ab764294daa319fcf0435b56
+      internalID: 1449976179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      pumpkinIntroComix_pictures_2_0: 1329224510
+      pumpkinIntroComix_pictures_2_1: 1909123147
+      pumpkinIntroComix_pictures_2_10: -590484489
+      pumpkinIntroComix_pictures_2_11: -241300857
+      pumpkinIntroComix_pictures_2_12: -58265903
+      pumpkinIntroComix_pictures_2_13: -996375795
+      pumpkinIntroComix_pictures_2_14: 2124018942
+      pumpkinIntroComix_pictures_2_15: -367308745
+      pumpkinIntroComix_pictures_2_16: -825888509
+      pumpkinIntroComix_pictures_2_17: 1844562785
+      pumpkinIntroComix_pictures_2_18: 1313956590
+      pumpkinIntroComix_pictures_2_19: -1070259618
+      pumpkinIntroComix_pictures_2_2: 1973274289
+      pumpkinIntroComix_pictures_2_20: 720601894
+      pumpkinIntroComix_pictures_2_21: 1122843876
+      pumpkinIntroComix_pictures_2_22: -1653759508
+      pumpkinIntroComix_pictures_2_23: -1586270504
+      pumpkinIntroComix_pictures_2_25: 1135354766
+      pumpkinIntroComix_pictures_2_26: 567395095
+      pumpkinIntroComix_pictures_2_27: 1474264198
+      pumpkinIntroComix_pictures_2_28: -36930134
+      pumpkinIntroComix_pictures_2_3: 1930395106
+      pumpkinIntroComix_pictures_2_30: 73251462
+      pumpkinIntroComix_pictures_2_31: 905180134
+      pumpkinIntroComix_pictures_2_33: -787676126
+      pumpkinIntroComix_pictures_2_36: 1327135974
+      pumpkinIntroComix_pictures_2_37: 542336476
+      pumpkinIntroComix_pictures_2_38: -1932294969
+      pumpkinIntroComix_pictures_2_4: -1525814276
+      pumpkinIntroComix_pictures_2_5: -1865688225
+      pumpkinIntroComix_pictures_2_6: -497537084
+      pumpkinIntroComix_pictures_2_7: 1449976179
+      pumpkinIntroComix_pictures_2_8: 731581630
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

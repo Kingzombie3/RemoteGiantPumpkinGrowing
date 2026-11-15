@@ -12,6 +12,8 @@ namespace _Project.Scripts.Runtime.Features.Farm
         private float _animDuration = 0.3f;
         private Vector3 _maxScale = Vector3.one;
 
+        [SerializeField] private bool _isTemp;
+
         // ѕорог зарастани€ (0.3 = 30%), до которого трава не по€вл€етс€
         private const float GrowthStartThreshold = 0.2f;
 
@@ -47,6 +49,14 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
             transform.DOKill();
             transform.DOScale(targetScale, _animDuration).SetEase(Ease.Linear);
+            
+            if (_isTemp && _pumpkin.PumpkinSize.Value > 20)
+            {
+                if (transform.localScale.x < 0.01f)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
         }
 
         private void OnDestroy()

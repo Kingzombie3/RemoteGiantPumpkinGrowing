@@ -24,5 +24,6 @@ MonoBehaviour:
   EffectType: 2
   BasePrice: 1
   PriceMultiplier: 1.007
-  MaxLevel: 500
+  MaxLevel: 1000
   ValuePerLevel: 0.5
+  image: {fileID: -792777518, guid: 6b93bd77b6af4ec4ca52119188be8fd4, type: 3}

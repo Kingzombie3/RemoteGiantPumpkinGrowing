@@ -58,7 +58,9 @@ namespace _Project.Scripts.Runtime.Features.SaveSystem
             SaveData data = new SaveData
             {
                 Coins = _walletService.Coins.Value,
-                PumpkinSize = _pumpkin.PumpkinSize.Value
+                PumpkinSize = _pumpkin.PumpkinSize.Value,
+                PumpkinName = _pumpkin.PumpkinName.Value,
+                IsPumpkinNamed = _pumpkin.IsNamed.Value
             };
 
             foreach (var kvp in _upgradeManager.UpgradeLevels)
@@ -78,6 +80,8 @@ namespace _Project.Scripts.Runtime.Features.SaveSystem
             // –аспредел€ем примитивы обратно по системам
             _walletService.SetCoins(data.Coins);
             _pumpkin.PumpkinSize.Value = data.PumpkinSize;
+            _pumpkin.PumpkinName.Value = data.PumpkinName;
+            _pumpkin.IsNamed.Value = data.IsPumpkinNamed;
             _upgradeManager.LoadUpgradeLevelsDirectly(data.Upgrades);
         }
 

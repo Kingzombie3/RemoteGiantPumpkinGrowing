@@ -8,6 +8,7 @@ using VContainer;
 using VContainer.Unity;
 using _Project.Scripts.Runtime.Features.SaveSystem;
 using _Project.Scripts.Runtime.UI.DebugTools;
+using _Project.Scripts.Runtime.UI.Effects;
 
 namespace _Project.Scripts.Runtime.Composition
 {
@@ -23,13 +24,12 @@ namespace _Project.Scripts.Runtime.Composition
         [SerializeField] private WalletUI _walletUI;
         [SerializeField] private StoreGridUI _storeGridUI;
         [SerializeField] private DebugProgressReset _debugProgressReset;
-
-        private GameSaveController _saveController;
+        [SerializeField] private HeatHazeController _heatHazeController;
+        [SerializeField] private WeatherController _weatherController;
+        [SerializeField] private RainWeatherEffect _rainWeatherEffect;
 
         protected override void Configure(IContainerBuilder builder)
         {
-            // 1. Регистрируем чистый C#-сервис кошелька (Синглтон)
-            // Добавляем .AsSelf(), чтобы кошелек можно было прокинуть и как IWalletService, и как WalletService
             builder.Register<WalletService>(Lifetime.Singleton)
                 .AsImplementedInterfaces()
                 .AsSelf();
@@ -39,17 +39,20 @@ namespace _Project.Scripts.Runtime.Composition
             builder.RegisterEntryPoint<GameSaveController>(Lifetime.Singleton)
                 .AsSelf();
 
-            // 2. Регистрируем базовые Mono-компоненты
+            // Регистрируем базовые Mono-компоненты
             builder.RegisterComponent(_pumpkin);
             builder.RegisterComponent(_upgradeManager);
             builder.RegisterComponent(_roomNavigationUI);
 
-            // 3. Регистрируем остальные Mono-скрипты, чтобы VContainer вызвал в них метод Construct()
+            // Регистрируем остальные Mono-скрипты, чтобы VContainer вызвал в них метод Construct()
             builder.RegisterComponent(_donationController);
             builder.RegisterComponent(_growController);
             builder.RegisterComponent(_walletUI);
             builder.RegisterComponent(_storeGridUI);
             builder.RegisterComponent(_debugProgressReset);
+            builder.RegisterComponent(_heatHazeController);
+            builder.RegisterComponent(_weatherController);
+            builder.RegisterComponent(_rainWeatherEffect);
 
         }
     }

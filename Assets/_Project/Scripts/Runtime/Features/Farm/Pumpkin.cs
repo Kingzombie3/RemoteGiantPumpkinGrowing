@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System.Threading.Tasks;
 using UniRx;
 using System;
 using DG.Tweening;
-using _Project.Scripts.Runtime.Core;
-using _Project.Scripts.Runtime.Features.Farm;
+using _Project.Scripts.Runtime.Core.Upgrades;
 using _Project.Scripts.Runtime.Features.Upgrades;
+using _Project.Scripts.Runtime.Core.Weather;
+using VContainer;
 
 namespace _Project.Scripts.Runtime.Features.Farm
 {
@@ -15,13 +13,15 @@ namespace _Project.Scripts.Runtime.Features.Farm
     {
         [Header("Основные параметры")]
         [SerializeField] private float _baseGrowSpeed = 0.01f; // Базовая скорость
-        public ReactiveProperty<float> PumpkinSize { get; } = new ReactiveProperty<float>(0.1f);
+        public ReactiveProperty<float> PumpkinSize { get; } = new ReactiveProperty<float>(0.01f);
         public ReactiveProperty<float> PumpkinThirsting { get; } = new ReactiveProperty<float>(1f); // 1 = ок, 0 = сухая
         public ReactiveProperty<float> PumpkinWeeding { get; } = new ReactiveProperty<float>(1f);   // 1 = чисто, 0 = заросла
         public ReactiveProperty<float> PumpkinHappiness { get; } = new ReactiveProperty<float>(1f);
+        public ReactiveProperty<string> PumpkinName = new ReactiveProperty<string>("");
+        public ReactiveProperty<bool> IsNamed = new ReactiveProperty<bool>(false);
 
         [SerializeField] private float _size => PumpkinSize.Value;
-        [SerializeField] private WeatherController _weatherController;
+        
 
         [Header("Скорость ухудшения параметров (ед/сек)")]
         [SerializeField] private float _thirstDepletionSpeed = 0.1f;
@@ -31,7 +31,8 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
         private readonly SerialDisposable _timerDisposable = new SerialDisposable();
 
-        [SerializeField] private UpgradeManager _upgradeManager;
+        private UpgradeManager _upgradeManager;
+        private WeatherController _weatherController;
 
         [SerializeField] private float _maxPumpkinSize = 1000f;
 
@@ -42,6 +43,13 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
         [Header("Glasses")]
         [SerializeField] private GameObject _glassesObj;
+
+        [Inject]
+        public void Construct(WeatherController weatherController, UpgradeManager upgradeManager)
+        {
+            _weatherController = weatherController;
+            _upgradeManager = upgradeManager;
+        }
 
         private void Start()
         {
@@ -105,6 +113,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
         private void RestartGameTimer(float intervalSeconds)
         {
             _timerDisposable.Disposable = Observable.Interval(TimeSpan.FromSeconds(intervalSeconds))
+                .Where(_ => IsNamed.Value)
                 .ObserveOnMainThread()
                 .Subscribe(_ => ProcessGameTick());
 
@@ -128,7 +137,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
                     // АПГРЕЙД "Анти-Дождь": снижает штраф бурного роста сорняков
                     float rainDefense = _upgradeManager != null ? _upgradeManager.GetEffectValue(UpgradeEffectType.ReduceRainPenalty) : 0f;
-                    weedModifier = Mathf.Max(0.5f, 2f - rainDefense);
+                    weedModifier = Mathf.Max(0.5f, 2.5f - rainDefense);
 
                     growthModifier = 1.2f;       // Рост +20%
                     break;
@@ -136,9 +145,9 @@ namespace _Project.Scripts.Runtime.Features.Farm
                 case WeatherType.Heat:
                     // АПГРЕЙД "Кулер": снижает скорость высыхания на жаре
                     float thirstDefense = _upgradeManager != null ? _upgradeManager.GetEffectValue(UpgradeEffectType.ReduceHeatPenalty) : 0f;
-                    thirstModifier = Mathf.Max(0.5f, 2.5f - thirstDefense);
+                    thirstModifier = Mathf.Max(0.5f, 3f - thirstDefense);
 
-                    weedModifier = 0.5f;         // Сорняки сохнут
+                    weedModifier = 0.5f;
 
                     // АПГРЕЙД "Кулер": возвращает скорость роста, компенсируя пекло
                     float growthRecovery = _upgradeManager != null ? _upgradeManager.GetEffectValue(UpgradeEffectType.ReduceHeatPenalty) : 0f;
@@ -152,6 +161,21 @@ namespace _Project.Scripts.Runtime.Features.Farm
                     growthModifier = 1f;
                     break;
             }
+        }
+
+        public void SetPumpkinName(string newName)
+        {
+            if (string.IsNullOrWhiteSpace(newName))
+            {
+                PumpkinName.Value = "Тыковка";
+            }
+            else
+            {
+                string trimmed = newName.Trim();
+                PumpkinName.Value = trimmed.Length > 30 ? trimmed.Substring(0, 30) : trimmed;
+            }
+
+            IsNamed.Value = true;
         }
 
         private float CalculateGameTick(

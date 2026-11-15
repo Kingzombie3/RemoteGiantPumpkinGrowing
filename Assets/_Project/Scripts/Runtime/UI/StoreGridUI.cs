@@ -5,9 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using _Project.Scripts.Runtime.Features.Upgrades;
 using _Project.Scripts.Runtime.Features.Economy;
-using _Project.Scripts.Runtime.Core;
+using _Project.Scripts.Runtime.Core.Upgrades;
 using VContainer;
 using VContainer.Unity;
+
 
 namespace _Project.Scripts.Runtime.UI
 {

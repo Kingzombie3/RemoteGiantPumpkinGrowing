@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 36.534, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 246.78435, y: 0.5}
-  m_SizeDelta: {x: 46.3877, y: 14.914}
+  m_AnchoredPosition: {x: 236.3, y: 0.5}
+  m_SizeDelta: {x: 67.359, y: 14.914}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3874893869065856239
 CanvasRenderer:
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 10
-  m_fontSizeBase: 10
+  m_fontSize: 9
+  m_fontSizeBase: 9
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -755,6 +755,7 @@ MonoBehaviour:
   _costText: {fileID: 4530666440273087678}
   _levelText: {fileID: 6500448648470515891}
   _buyButton: {fileID: 5100775547425553366}
+  _image: {fileID: 6571251228970946980}
 --- !u!1 &6529091025364700945
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,7 +790,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 36.534, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 254.69998, y: -15.4}
+  m_AnchoredPosition: {x: 248.1, y: -15.4}
   m_SizeDelta: {x: 49.5507, y: 12.029}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6764624538397503431

@@ -25,3 +25,4 @@ MonoBehaviour:
   PriceMultiplier: 1.5
   MaxLevel: 10
   ValuePerLevel: 0.035
+  image: {fileID: -1763516273, guid: 6b93bd77b6af4ec4ca52119188be8fd4, type: 3}

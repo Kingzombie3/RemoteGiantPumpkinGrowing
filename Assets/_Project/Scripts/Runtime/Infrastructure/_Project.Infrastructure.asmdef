@@ -3,7 +3,9 @@
     "rootNamespace": "_Project.Scripts.Runtime.Infrastructure",
     "references": [
         "GUID:a9f449728dd9e164da65f53dfa672473",
-        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc"
+        "GUID:b0214a6008ed146ff8f122a6a9c2f6cc",
+        "GUID:560b04d1a97f54a4e82edc0cbbb69285",
+        "GUID:399fa4f602765b14cb05c81029d41136"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

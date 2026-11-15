@@ -2,8 +2,9 @@ using UnityEngine;
 using UniRx;
 using System;
 using Random = UnityEngine.Random;
-using _Project.Scripts.Runtime.Core;
-using _Project.Scripts.Runtime.Features.Farm;
+using _Project.Scripts.Runtime.Core.Weather;
+using _Project.Scripts.Runtime.Core.Audio;
+using VContainer;
 
 namespace _Project.Scripts.Runtime.Features.Farm
 {
@@ -13,12 +14,21 @@ namespace _Project.Scripts.Runtime.Features.Farm
         [SerializeField] private Pumpkin _pumpkin;
 
         [Header("Настройки времени (в секундах)")]
-        [SerializeField] private float _minWeatherDuration = 2f; //120
-        [SerializeField] private float _maxWeatherDuration = 3f; //240
+        [SerializeField] private float _minWeatherDuration = 90f; //120
+        [SerializeField] private float _maxWeatherDuration = 240f; //240
 
         private int badWeatherCount;
 
         public ReactiveProperty<WeatherType> CurrentWeather = new ReactiveProperty<WeatherType>(WeatherType.Normal);
+
+        private IAudioService _audioService;
+
+        [Inject]
+        public void Construct(IAudioService audioService)
+        {
+            _audioService = audioService;
+        }
+
         void Start()
         {
             badWeatherCount = 0;
@@ -29,13 +39,21 @@ namespace _Project.Scripts.Runtime.Features.Farm
                 return;
             }
 
-            // Запускаем реактивную цепочку смены погоды
-            StartWeatherCycle();
+            CurrentWeather
+                .ObserveOnMainThread()
+                .Subscribe(weather => _audioService?.SetRainAmbience(weather == WeatherType.Rain))
+                .AddTo(this);
+
+            _pumpkin.IsNamed
+                .Where(isNamed => isNamed)
+                .First()
+                .ObserveOnMainThread()
+                .Subscribe(_ => StartWeatherCycle())
+                .AddTo(this);
         }
 
         private void StartWeatherCycle()
         {
-            // Рандомизируем время до следующей смены погоды
             float duration = Random.Range(_minWeatherDuration, _maxWeatherDuration);
 
             Observable.Timer(TimeSpan.FromSeconds(duration))
@@ -43,7 +61,7 @@ namespace _Project.Scripts.Runtime.Features.Farm
                 .Subscribe(_ =>
                 {
                     ChangeToRandomWeather();
-                    StartWeatherCycle(); // Рекурсивно запускаем следующий таймер
+                    StartWeatherCycle();
                 })
                 .AddTo(this);
         }

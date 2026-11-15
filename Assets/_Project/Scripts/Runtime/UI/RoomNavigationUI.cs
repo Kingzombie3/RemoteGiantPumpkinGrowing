@@ -22,6 +22,8 @@ namespace _Project.Scripts.Runtime.UI
 
         public BoolReactiveProperty IsBalconyUnlocked { get; } = new BoolReactiveProperty(false);
 
+        public readonly ReactiveProperty<bool> IsOnBalcony = new ReactiveProperty<bool>(false);
+
         [Inject]
         private void Construct(UpgradeManager upgrade)
         {
@@ -72,6 +74,7 @@ namespace _Project.Scripts.Runtime.UI
                     _toBalconyButton.gameObject.SetActive(false);                 
                     _toMonitor2Button.gameObject.SetActive(false);
                     _toMonitor1FromBalconyButton.gameObject.SetActive(true);
+                    IsOnBalcony.Value = true;
                 })
                 .AddTo(this);
 
@@ -81,6 +84,7 @@ namespace _Project.Scripts.Runtime.UI
 
                     _toMonitor1FromBalconyButton.gameObject.SetActive(false);
                     _toMonitor2Button.gameObject.SetActive(true);
+                    IsOnBalcony.Value = false;
 
                     if (IsBalconyUnlocked.Value == true)
                     {

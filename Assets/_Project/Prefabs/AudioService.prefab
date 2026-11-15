@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5015794450269703618
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5433577914465562164}
+  - component: {fileID: 3733551525933054833}
+  m_Layer: 0
+  m_Name: AudioService
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5433577914465562164
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015794450269703618}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3733551525933054833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5015794450269703618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0113574cfefe08342983643334cdf155, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sounds:
+  - ID: weed
+    Clips:
+    - {fileID: 8300000, guid: 41e14897015ff4e4c9513fc136c9c7a4, type: 3}
+    - {fileID: 8300000, guid: b876f27d2ba6e0c49afd25cdfde33558, type: 3}
+    - {fileID: 8300000, guid: 8067613891910f44cbfe067d990fc53f, type: 3}
+  - ID: water
+    Clips:
+    - {fileID: 8300000, guid: 84a4e3fb034cae4409639adbd3771b02, type: 3}
+    - {fileID: 8300000, guid: d1102c2139a275a408566764d5a13fb2, type: 3}
+    - {fileID: 8300000, guid: 7e75bb9ddd26f774ab6286604df203ed, type: 3}
+  - ID: buy
+    Clips:
+    - {fileID: 8300000, guid: 812feea6f5172ed4498d763bfa294804, type: 3}
+  - ID: rain
+    Clips:
+    - {fileID: 8300000, guid: 1b7c8522a66cbe942bebf38ed978cb0a, type: 3}
+  - ID: donate
+    Clips:
+    - {fileID: 8300000, guid: 54d4e7d0255537a478f023450d6513dd, type: 3}
+    - {fileID: 8300000, guid: b5fb4d8bcac41ee488027262a490a80f, type: 3}
+  - ID: paper_rustle
+    Clips:
+    - {fileID: 8300000, guid: eb2345969d9013b4a9cb9894aeb3d000, type: 3}
+    - {fileID: 8300000, guid: cd78f54df76a19c4cad76f130cb900b3, type: 3}
+  _backgroundMusic:
+  - {fileID: 8300000, guid: 14230332a56bd46469cb11ebe0910ba0, type: 3}
+  - {fileID: 8300000, guid: ab91b61a721705048b6d8bc0e63fc684, type: 3}
+  - {fileID: 8300000, guid: 2147e337f27a36f4cb64f0525d624ac7, type: 3}
+  - {fileID: 8300000, guid: b979c546c59089a44beb909c16feff7b, type: 3}
+  - {fileID: 8300000, guid: 516b6ea844326424f881b0b230758f36, type: 3}
+  _rainSoundID: rain
