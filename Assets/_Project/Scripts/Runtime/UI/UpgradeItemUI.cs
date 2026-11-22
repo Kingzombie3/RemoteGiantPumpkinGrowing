@@ -6,6 +6,8 @@ using _Project.Scripts.Runtime.Features.Upgrades;
 using VContainer;
 using _Project.Scripts.Runtime.Features.Economy;
 using _Project.Scripts.Runtime.Core.Upgrades;
+using UniRx.Triggers;
+using DG.Tweening;
 
 namespace _Project.Scripts.Runtime.UI
 {
@@ -23,6 +25,8 @@ namespace _Project.Scripts.Runtime.UI
         private UpgradeManager _manager;
         private IWalletService _wallet;
 
+        private Vector3 _defaultButtonScale;
+
         [Inject]
         private void Constuct(IWalletService wallet, UpgradeManager manager)
         {
@@ -30,9 +34,16 @@ namespace _Project.Scripts.Runtime.UI
             _wallet = wallet;
         }
 
+        private void Awake()
+        {
+            //_defaultButtonScale = transform.localScale;
+        }
+
         public void Setup(UpgradeData data)
         {
             _data = data;
+            Transform buttonTransform = _buyButton.transform;
+            _defaultButtonScale = buttonTransform.localScale;
 
             // Запускаем реактивное обновление этого конкретного префаба
             _manager.UpgradeLevels.ObserveEveryValueChanged(dict => _manager.GetUpgradeLevel(_data.ID))
@@ -49,7 +60,37 @@ namespace _Project.Scripts.Runtime.UI
                 .Subscribe(_ => _manager.TryBuyUpgrade(_data))
                 .AddTo(this);
 
+            _buyButton.OnPointerEnterAsObservable()
+                .Where(_ => _buyButton.interactable)
+                .Subscribe(_ => AnimateButtonScale(buttonTransform, _defaultButtonScale * 1.06f, 0.15f, Ease.OutQuad))
+                .AddTo(this);
+
+            _buyButton.OnPointerExitAsObservable()
+                .Where(_ => _buyButton.interactable)
+                .Subscribe(_ => AnimateButtonScale(buttonTransform, _defaultButtonScale , 0.15f, Ease.OutQuad))
+                .AddTo(this);
+
+            _buyButton.OnPointerDownAsObservable()
+                .Where(_ => _buyButton.interactable)
+                .Subscribe(_ => AnimateButtonScale(buttonTransform, _defaultButtonScale * 0.94f, 0.8f, Ease.OutQuad))
+                .AddTo(this);
+
+            _buyButton.OnPointerUpAsObservable()
+                .Where(_ => _buyButton.interactable)
+                .Subscribe(_ => AnimateButtonScale(buttonTransform, _defaultButtonScale * 1.06f, 0.18f, Ease.OutBack))
+                .AddTo(this);
+
             _image.sprite = _data.image;
+        }
+
+        private void AnimateButtonScale(Transform target, Vector3 targetScale, float duration, Ease ease)
+        {
+            if (target == null) return;
+
+            target.DOKill();
+            target.DOScale(targetScale, duration)
+                .SetEase(ease)
+                .SetUpdate(true);
         }
 
         private void UpdateUI()
@@ -80,6 +121,12 @@ namespace _Project.Scripts.Runtime.UI
 
             // Кнопка активна только если хватает монет
             _buyButton.interactable = currentCoins >= _data.GetPrice(currentLevel);
+        }
+
+        private void OnDestroy()
+        {
+            if (_buyButton != null)
+                _buyButton.transform.DOKill();
         }
     }
 }
