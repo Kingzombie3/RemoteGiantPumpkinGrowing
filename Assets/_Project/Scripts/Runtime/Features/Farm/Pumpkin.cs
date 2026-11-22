@@ -19,6 +19,8 @@ namespace _Project.Scripts.Runtime.Features.Farm
         public ReactiveProperty<float> PumpkinHappiness { get; } = new ReactiveProperty<float>(1f);
         public ReactiveProperty<string> PumpkinName = new ReactiveProperty<string>("");
         public ReactiveProperty<bool> IsNamed = new ReactiveProperty<bool>(false);
+        public readonly ReactiveProperty<float> CurrentTickInterval = new ReactiveProperty<float>(1.0f);
+
 
         [SerializeField] private float _size => PumpkinSize.Value;
         
@@ -73,7 +75,6 @@ namespace _Project.Scripts.Runtime.Features.Farm
 
             if (_upgradeManager != null)
             {
-                // Ќативно слушаем любые изменени€ внутри реактивного словар€ (добавление, повышение уровн€, очистка при загрузке/сбросе)
                 Observable.Merge(
                     _upgradeManager.UpgradeLevels.ObserveAdd().AsUnitObservable(),
                     _upgradeManager.UpgradeLevels.ObserveReplace().AsUnitObservable(),
@@ -112,6 +113,8 @@ namespace _Project.Scripts.Runtime.Features.Farm
         }
         private void RestartGameTimer(float intervalSeconds)
         {
+            CurrentTickInterval.Value = intervalSeconds;
+
             _timerDisposable.Disposable = Observable.Interval(TimeSpan.FromSeconds(intervalSeconds))
                 .Where(_ => IsNamed.Value)
                 .ObserveOnMainThread()
